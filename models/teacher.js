@@ -47,24 +47,6 @@ const Teacher = sequelize.define('Teacher', {
     }
 });
 
-Teacher.afterUpdate(async (teacher, options) => {
-    try {
-        const [numUpdated, updatedSchools] = await School.update({
-            NationalID: teacher.nationalID,
-            name: teacher.name,
-            Surname: teacher.surname,
-            Number: teacher.teacherNumber,
-            teacherSalary: teacher.salary
-        }, { where: { category: 'Teacher' } });
-
-        console.log(`${numUpdated} school(s) updated.`);
-
-        // If you need to access the updated schools, you can use updatedSchools variable
-
-    } catch (error) {
-        console.error('Error updating school:', error);
-    }
-});
 
 
 module.exports = Teacher;
