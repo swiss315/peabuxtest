@@ -3,6 +3,7 @@ import InputField from "@/Components/Form/InputField";
 import CustomButton from "@/Components/Form/CustomButton";
 import {useState} from "react";
 import axios from "axios";
+import {apiurl} from "@/Hook/hooks";
 
 export default function AddTeacher({ onHide }: { onHide: () => void }) {
     const [page, setPage] = useState(false)
@@ -42,7 +43,6 @@ export default function AddTeacher({ onHide }: { onHide: () => void }) {
         console.log(data)
     }
     const [error, setError] = useState(null)
-    let apiurl = "https://peabuxtest-api.onrender.com/api"
     const fetchData = async (e: { preventDefault: () => void; }) => {
         e.preventDefault();
         setIsLoading(true);

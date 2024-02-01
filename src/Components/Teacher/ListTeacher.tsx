@@ -1,5 +1,6 @@
 import {useEffect, useRef, useState} from "react";
 import axios from "axios";
+import {apiurl} from "@/Hook/hooks";
 
 interface Teacher {
     nationalID: string;
@@ -14,7 +15,6 @@ interface Teacher {
 
 
 export default function ListTeacher () {
-    let apiurl = "https://peabuxtest-api.onrender.com/api"
     let [data, setData] = useState<Teacher[]>([])
 
 

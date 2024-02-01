@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
+import {apiurl} from "@/Hook/hooks";
 
 interface Student {
     nationalID: string;
@@ -10,8 +11,7 @@ interface Student {
     createdAt: string;
 }
 
-export default function ListStudent () {
-    let apiurl = "https://peabuxtest-api.onrender.com/api"
+export default function ListStudent() {
     let [data, setData] = useState<Student[]>([])
     useEffect(() => {
         const fetchData = async () => {
@@ -25,10 +25,12 @@ export default function ListStudent () {
         };
         fetchData()
     }, [])
+
     function formatDate(isoDateString: string | number | Date) {
         const date = new Date(isoDateString);
         return date.toLocaleString(); // Adjust options as needed
     }
+
     return (
         <div>
             <h1 className="text-blue-500 text-xl px-3 py-3">Student List</h1>
