@@ -24,16 +24,6 @@ const Teacher = sequelize.define('Teacher', {
     dateOfBirth: {
         type: DataTypes.DATEONLY,
         allowNull: false,
-        validate: {
-            isDate: true,
-            isOldEnough(value) {
-                const minDate = new Date();
-                minDate.setFullYear(minDate.getFullYear() - 21);
-                if (new Date(value) > minDate) {
-                    throw new Error('Teacher must be at least 21 years old.');
-                }
-            }
-        }
     },
     teacherNumber: {
         type: DataTypes.STRING,
