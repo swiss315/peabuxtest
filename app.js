@@ -10,11 +10,11 @@ const Teacher = require('./models/teacher');
 const app = express();
 app.use(express.json())
 app.use(cors({
-    origin: ['https://peabuxtest.netlify.app/', 'http://localhost:3000'] ,
-    methods: ['GET', 'POST', 'PUT'],
+    origin: ['https://peabuxtest.netlify.app/*', 'http://localhost:3000'],
     allowedHeaders: ['Authorization', 'Content-Type'],
     credentials: true
 }));
+
 app.use('/api/teacher', TeacherRoutes)
 app.use('/api/student', StudentRoutes)
 
