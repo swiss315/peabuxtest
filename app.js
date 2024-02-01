@@ -4,10 +4,17 @@ const express = require('express');
 const TeacherRoutes = require('./routes/Teacher')
 const StudentRoutes = require('./routes/Student')
 const sequelize = require('./db');
+const cors = require('cors');
 const Teacher = require('./models/teacher');
 
 const app = express();
 app.use(express.json())
+app.use(cors({
+    origin: ['http://localhost:3001', 'http://localhost:3000'] ,
+    methods: ['GET', 'POST', 'PUT'],
+    allowedHeaders: ['Authorization', 'Content-Type'],
+    credentials: true
+}));
 app.use('/api/teacher', TeacherRoutes)
 app.use('/api/student', StudentRoutes)
 
