@@ -3,7 +3,7 @@ require('dotenv').config()
 const express = require('express');
 const TeacherRoutes = require('./routes/Teacher')
 const sequelize = require('./db');
-const Teacher = require('./models/Teacher');
+const Teacher = require('./models/teacher');
 
 const app = express();
 app.use(express.json())
