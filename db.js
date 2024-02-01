@@ -1,8 +1,8 @@
 const { Sequelize, DataTypes} = require('sequelize');
 
-const sequelize = new Sequelize('sys', 'root', 'root', {
+const sequelize = new Sequelize('sql8681254', 'sql8681254', 'DBmIwrCxVU', {
     dialect: 'mysql',
-    host: '127.0.0.1',
+    host: 'sql8.freemysqlhosting.net',
 });
 
 module.exports = sequelize;
