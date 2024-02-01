@@ -2,12 +2,14 @@ require('dotenv').config()
 
 const express = require('express');
 const TeacherRoutes = require('./routes/Teacher')
+const StudentRoutes = require('./routes/Student')
 const sequelize = require('./db');
 const Teacher = require('./models/teacher');
 
 const app = express();
 app.use(express.json())
 app.use('/api/teacher', TeacherRoutes)
+app.use('/api/student', StudentRoutes)
 
 // Sync models with the database
 sequelize.sync()
