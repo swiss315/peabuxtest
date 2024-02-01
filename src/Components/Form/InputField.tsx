@@ -1,7 +1,6 @@
 "use Client"
 
 import React, {ChangeEvent, useEffect, useState} from 'react';
-import {className} from "postcss-selector-parser";
 
 interface InputFieldProps {
     disabled?: boolean;
@@ -44,7 +43,7 @@ export default function InputField({ disabled = false, label ,className, type ,m
     return (
         <div className={className}>
             <label
-                htmlFor={name} // Use htmlFor instead of for
+                htmlFor={name}
                 className={`${
                     disabled ? 'cursor-not-allowed bg-gray-100/10' : ''
                 } border border-gray-300 rounded-md py-2 px-4 block relative`}
@@ -53,8 +52,6 @@ export default function InputField({ disabled = false, label ,className, type ,m
                     <span>{label}</span>
                     {tooltip && (
                         <button type="button" className="cursor-pointer">
-                            {/* <InfoCircle size={24} type="bold" className="w-4 h-4" /> */}
-                            {/* Replace the above line with your InfoCircle component */}
                         </button>
                     )}
                 </span>

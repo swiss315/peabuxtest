@@ -2,7 +2,6 @@
 import { useState } from 'react';
 import { Menu } from '@headlessui/react';
 import { IoChevronDown } from 'react-icons/io5';
-import {className} from "postcss-selector-parser";
 
 interface Option {
     value: string | number;
