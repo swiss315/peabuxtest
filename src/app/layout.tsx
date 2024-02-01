@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import backgroundImageUrl from "@/Assets/Images/background.png";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +17,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+      <div className="flex  flex-col items-center justify-center " style={{height: '100vh', backgroundImage: `url(${backgroundImageUrl.src})`}}>
+        {children}
+      </div>
+      </body>
     </html>
   );
 }
