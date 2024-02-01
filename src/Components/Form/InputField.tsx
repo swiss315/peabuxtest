@@ -15,15 +15,16 @@ interface InputFieldProps {
     mask?: string;
     loading?: boolean;
     tooltip?: string;
-    onUpdateModelValue: (value: string) => void;
+    onUpdateModelValue: (value: string, s: string) => void;
     className?: string;
+    required?: boolean;
 }
 
-export default function InputField({ disabled = false, label ,className, type ,max, name, modelValue, placeholder, tooltip, onUpdateModelValue, min}: InputFieldProps): JSX.Element {
+export default function InputField({ disabled = false, label ,className, type ,max, name, modelValue, placeholder, tooltip, onUpdateModelValue, min, required}: InputFieldProps): JSX.Element {
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         setInputValue(value)
-        onUpdateModelValue(e.target.value);
+        onUpdateModelValue(e.target.name, e.target.value);
 
         // const newValue = e.target.value;
         // console.log(newValue)
@@ -69,6 +70,7 @@ export default function InputField({ disabled = false, label ,className, type ,m
                         disabled ? 'cursor-not-allowed' : ''
                     } block w-full py-2 text-sm text-gray-900 px-0 bg-transparent focus-visible:outline-0`}
                     onChange={handleInputChange}
+                    required={required}
                 />
                 {/**/}
             </label>

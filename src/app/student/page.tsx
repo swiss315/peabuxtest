@@ -10,7 +10,7 @@ export default function Page() {
     return (
         <div className='w-1/2 flex flex-col justify-center items-center gap-y-3.5'>
             <div className="">
-                <h1 className="text-red-600 text-xl">Welcome to Peabux Teacher and Student Database</h1>
+                <h1 className="text-blue-500 text-xl">Welcome to Peabux Teacher and Student Database</h1>
             </div>
             <div className='flex justify-between px-2 w-7/12 gap-x-3.5'>
                 {!page ? (
@@ -47,7 +47,7 @@ export default function Page() {
                  style={{minHeight: '500px', boxShadow: '0px 4px 17px 0px #0B22391A'}}>
                 {!page ?
                     <ListStudent /> :
-                    <AddStudent/>
+                    <AddStudent onHide={() => setPage(false)}/>
                 }
             </div>
         </div>

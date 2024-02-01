@@ -28,7 +28,6 @@ export default function SelectField({
                                       label,
                                       placeholder,
                                       id,
-                                      loading = false,
                                       options = [],
                                       disabled = false,
                                       onUpdateModelValue,
@@ -36,9 +35,6 @@ export default function SelectField({
                                   }: Props): JSX.Element {
     const [selectedOption, setSelectedOption] = useState<Option | null>(null);
 
-    const getSelectedOption = (): Option | null => {
-        return options.find((option) => option.value === modelValue) || null;
-    };
 
     const onOptionSelected = (value: Option): void => {
         onUpdateModelValue(value.value);
