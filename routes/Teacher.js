@@ -9,7 +9,7 @@ router.get('/list', async (req, res) => {
     try {
         const teachers = await Teacher.findAll();
 
-        res.json(teachers);
+        res.json({msg: 'Successful', data: teachers});
     } catch (error) {
         console.error('Error fetching teachers:', error);
         res.status(500).json({ error: 'Internal server error' });
@@ -37,7 +37,7 @@ router.post('/add', async (req, res) => {
             category: 'Teacher'
         });
 
-        res.status(201).json(newTeacher);
+        res.status(201).json({msg: 'Successful', data: newTeacher});
     } catch (error) {
         // Check if the error is a SequelizeUniqueConstraintError
         if (error.name === 'SequelizeUniqueConstraintError') {
